@@ -1,3 +1,4 @@
+# coding=UTF-8
 import requests
 from urllib import request
 import os
