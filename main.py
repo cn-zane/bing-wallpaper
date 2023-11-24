@@ -1,3 +1,4 @@
+# coding=UTF-8
 import requests
 from urllib import request
 import os
@@ -25,7 +26,7 @@ def print_hi():
     curr_year = now.year
     curr_date = datetime.datetime.strftime(now, "%Y-%m")
     # 保存的路径(自动创建年月目录)
-    path = r"E:\pythonProject\bing-wallpaper\download"
+    path = "/mydata/projects/bing-wallpaper/download"
     month_dir_path = path + "/{}/{}".format(curr_year, curr_date)
     # 月份路径(不存在则创建)
     if not os.path.exists(month_dir_path):
