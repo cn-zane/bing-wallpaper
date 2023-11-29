@@ -27,18 +27,35 @@ def print_hi():
     curr_date = datetime.datetime.strftime(now, "%Y-%m")
     # 保存的路径(自动创建年月目录)
     path = "/mydata/projects/bing-wallpaper/download"
+    webp_path = "/mydata/projects/bing-wallpaper/webpPic"
     month_dir_path = path + "/{}/{}".format(curr_year, curr_date)
+    month_dir_webp_path = webp_path + "/{}/{}".format(curr_year, curr_date)
+
     # 月份路径(不存在则创建)
     if not os.path.exists(month_dir_path):
         os.makedirs(month_dir_path)
+        
+    # webp月份路径(不存在则创建)
+    if not os.path.exists(month_dir_webp_path):
+        os.makedirs(month_dir_webp_path)
 
     # 图片下载路径
     pic_down_load_path = month_dir_path + "/{}-{}.jpg".format(picture_title, end_date)
+    webp_pic_down_load_path = month_dir_webp_path + "/{}-{}.webp".format(picture_title, end_date)
+    curr_webp_pic_down_load_path = month_dir_webp_path + "/curr.webp"
+    
     # 图片不存在->下载
     if not os.path.exists(pic_down_load_path):
         request.urlretrieve(url, pic_down_load_path)
         print(picture_title, "下载成功")
-
+        
+    # 图片格式转换为webp保存
+    if not os.path.exists(webp_pic_down_load_path):
+        im = Image.open(pic_down_load_path)
+        if not os.path.exists(curr_webp_pic_down_load_path):
+            im.save(webp_pic_down_load_path,"webp")
+            im.save(curr_webp_pic_down_load_path,"webp")
+        print(curr_webp_pic_down_load_path, "图片格式转换为webp完成")
 
 # 按间距中的绿色按钮以运行脚本。
 if __name__ == '__main__':
