@@ -4,7 +4,7 @@ from urllib import request
 import os
 import datetime
 import json
-
+from PIL import Image
 
 def print_hi():
     headers = {
