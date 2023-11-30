@@ -52,7 +52,7 @@ def print_hi():
     # 图片格式转换为webp保存
     if not os.path.exists(webp_pic_down_load_path):
         im = Image.open(pic_down_load_path)
-        if not os.path.exists(curr_webp_pic_down_load_path):
+        if not os.path.exists(webp_pic_down_load_path):
             im.save(webp_pic_down_load_path,"webp")
             im.save(curr_webp_pic_down_load_path,"webp")
         print(curr_webp_pic_down_load_path, "图片格式转换为webp完成")
