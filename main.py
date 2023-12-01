@@ -51,7 +51,7 @@ def print_hi():
     # 图片格式转换为webp保存
     if not os.path.exists(webp_pic_down_load_path):
         im = Image.open(pic_down_load_path)
-        im.save(webp_pic_down_load_path,"webp"，quality=20)
+        im.save(webp_pic_down_load_path,"webp", quality=20)
         print(webp_pic_down_load_path, "图片格式转换为webp完成")
 
 # 按间距中的绿色按钮以运行脚本。
