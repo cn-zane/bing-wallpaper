@@ -28,7 +28,7 @@ def print_hi():
     webp_date = datetime.datetime.strftime(now, "%Y-%m-%d")
     # 保存的路径(自动创建年月目录)
     path = "/mydata/projects/bing-wallpaper/download"
-    webp_path = "/mydata/nginx/images/"
+    webp_path = "/mydata/nginx/images"
     month_dir_path = path + "/{}/{}".format(curr_year, curr_date)
 
     # 月份路径(不存在则创建)
@@ -36,8 +36,8 @@ def print_hi():
         os.makedirs(month_dir_path)
         
     # webp月份路径(不存在则创建)
-    if not os.path.exists(month_dir_webp_path):
-        os.makedirs(month_dir_webp_path)
+    if not os.path.exists(webp_path):
+        os.makedirs(webp_path)
 
     # 图片下载路径
     pic_down_load_path = month_dir_path + "/{}-{}.jpg".format(picture_title, end_date)
