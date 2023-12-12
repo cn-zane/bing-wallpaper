@@ -10,14 +10,14 @@ from PIL import Image
 def print_hi():
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"}
-    res_html = requests.get("https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&uhd=1", headers=headers)
+    res_html = requests.get("https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8&uhd=1", headers=headers)
     res = res_html.content.decode("utf-8")
     json_res = json.loads(res)
-    url = json_res["images"][0]["url"]
+    url = json_res["images"][2]["url"]
     # url截取
     url = url[:url.find('&')];
-    picture_title = json_res["images"][0]["copyright"]
-    end_date = json_res["images"][0]["enddate"]
+    picture_title = json_res["images"][2]["copyright"]
+    end_date = json_res["images"][2]["enddate"]
     # 截取标题
     picture_title = picture_title[:picture_title.rfind('(')].strip()
     # 拼接url
