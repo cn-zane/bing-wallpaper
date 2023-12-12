@@ -13,11 +13,11 @@ def print_hi():
     res_html = requests.get("https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8&uhd=1", headers=headers)
     res = res_html.content.decode("utf-8")
     json_res = json.loads(res)
-    url = json_res["images"][2]["url"]
+    url = json_res["images"][3]["url"]
     # url截取
     url = url[:url.find('&')];
-    picture_title = json_res["images"][2]["copyright"]
-    end_date = json_res["images"][2]["enddate"]
+    picture_title = json_res["images"][3]["copyright"]
+    end_date = json_res["images"][3]["enddate"]
     # 截取标题
     picture_title = picture_title[:picture_title.rfind('(')].strip()
     # 拼接url
